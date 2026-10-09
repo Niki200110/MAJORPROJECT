@@ -16,6 +16,7 @@ const User = require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const listingController = require("./controllers/listing.js");
 
 
 app.set("view engine", "ejs");
@@ -80,6 +81,11 @@ app.use((req, res, next) => {
   res.locals.currUser = req.user;
   next();
 })
+
+// Homepage route — YAHAN
+app.get("/", listingController.index);
+
+// Router mounting  necha wahi hai
 
 //
 
